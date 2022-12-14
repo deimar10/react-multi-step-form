@@ -5,7 +5,7 @@ body {
 .grid-container {
   margin: 0 auto;
   margin-top: 150px;
-  width: 50%;
+  width: 55%;
   display: grid;
   grid-template-columns: auto auto;
   border-radius: 10px;
@@ -31,6 +31,7 @@ body {
   border-radius: 10px;
   height: 550px;
   width: 550px;
+  margin-left: -50px;
 }
 
 #button-wrapper {
@@ -62,7 +63,7 @@ body {
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 5px;
-  padding-bottom: 7px;
+  padding-bottom: 5px;
   background-color: transparent;
   color: white;
   font-size: 25px;

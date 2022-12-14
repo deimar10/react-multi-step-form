@@ -1,9 +1,20 @@
 import './components/css/App.css';
-import './components/css/Info.css'
+import './components/css/Info.css';
 import bgSidebar from './assets/images/bg-sidebar-desktop.svg';
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import FirstView from './components/js/FirstView';
+import SecondView from './components/js/SecondView';
+import ThirdView from "./components/js/ThirdView";
 
 function App() {
+
+  const [view, setView] = useState({
+    view1: true,
+    view2: false,
+    view3: false,
+    view4: false
+  });
+
   return (
     <div className="App">
       <div class="grid-container">
@@ -13,7 +24,12 @@ function App() {
         }}>
           <div id="button-wrapper">
             <div id="steps">
-             <p id='number'>1</p>
+             <p id='number' style={{
+                backgroundColor: view.view1 === true ? 'hsl(206, 94%, 87%)' : 'transparent',
+                color: view.view1 === true ? 'black' : 'white'
+             }}>
+              1
+              </p>
               <h2>step 1</h2>
             </div>
           <div id="text">
@@ -22,7 +38,12 @@ function App() {
           </div>
           <div id="button-wrapper">
             <div id="steps">
-            <p id='number'>2</p>
+            <p id='number' style={{
+                backgroundColor: view.view2 === true ? 'hsl(206, 94%, 87%)' : 'transparent',
+                color: view.view2 === true ? 'black' : 'white'
+             }}>
+              2
+              </p>
               <h2>step 2</h2>
             </div>
           <div id="text">
@@ -31,7 +52,12 @@ function App() {
           </div>
           <div id="button-wrapper">
             <div id="steps">
-            <p id='number'>3</p>
+            <p id='number' style={{
+              backgroundColor: view.view3 === true ? 'hsl(206, 94%, 87%)' : 'transparent',
+              color: view.view3 === true ? 'black' : 'white'
+            }}>
+              3
+              </p>
               <h2>step 3</h2>
             </div>
           <div id="text">
@@ -49,17 +75,9 @@ function App() {
           </div>
         </div>
         <div class="grid-item" id="main-panel">
-          <h2>Personal info</h2>
-          <p>Please provide your name, email address, and phone nubmer.</p>
-           <form>
-            <label>Name</label><br></br>
-            <input placeholder='Name'></input>
-            <label>Email</label><br></br>
-            <input placeholder='Email'></input>
-            <label>Phone number</label><br></br>
-            <input placeholder='Number'></input>
-           </form>
-           <button id='next'>Next Step</button>
+          {view.view1 ? <FirstView view={view} setView={setView} /> : null}
+          {view.view2 ? <SecondView view={view} setView={setView} /> : null }
+           {view.view3 ? <ThirdView view={view} setView={setView} /> : null }
         </div>
       </div>
     </div>
