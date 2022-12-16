@@ -7,6 +7,11 @@ import pro from '../../assets/images/icon-pro.svg'
 function SecondView({view, setView}) {
 
     const[billing, setBilling] = useState(false);
+    const[plan, setPlan] = useState({
+        arcadePlan: false,
+        advancedPlan: false,
+        proPlan: false,
+    });
     const[price, setPrice] = useState({
         arcadeMo: "$9/mo",
         advancedMo: "$12/mo",
@@ -28,23 +33,40 @@ function SecondView({view, setView}) {
         setBilling(!billing);
     }
 
+    console.log(plan)
+
     return (
         <div className="main-container">
             <div>
             <h2>Select your plan</h2>
             <p>You have the option of monthly or yearly billing.</p>
             <div class="second-grid-container">
-                <div class="second-grid-item">
+                <div onClick={() => setPlan({...plan, arcadePlan : !plan.arcadePlan})} 
+                class="second-grid-item" 
+                style={{
+                    backgroundColor:  plan.arcadePlan === true ? 'hsl(233, 44%, 96%)' : 'transparent',
+                    borderColor: plan.arcadePlan === true ? 'hsl(243, 100%, 62%)' : 'hsl(229, 24%, 87%)'
+                }}>
                     <img src={arcade} />
                     <h3>Arcade</h3>
                     <p> {billing ? price.arcadeYr : price.arcadeMo} </p>
                 </div>
-                <div class="second-grid-item">
+                <div onClick={() => setPlan({...plan, advancedPlan : !plan.advancedPlan})} 
+                class="second-grid-item" 
+                style={{
+                    backgroundColor:  plan.advancedPlan === true ? 'hsl(233, 44%, 96%)' : 'transparent',
+                    borderColor: plan.advancedPlan === true ? 'hsl(243, 100%, 62%)' : 'hsl(229, 24%, 87%)'
+                }}>
                     <img src={advanced} />
                     <h3>Advanced</h3>
                     <p> {billing ? price.advancedYr : price.advancedMo} </p>
                 </div>
-                <div class="second-grid-item">
+                <div onClick={() => setPlan({...plan, proPlan : !plan.proPlan})} 
+                class="second-grid-item"
+                style={{
+                    backgroundColor:  plan.proPlan === true ? 'hsl(233, 44%, 96%)' : 'transparent',
+                    borderColor: plan.proPlan === true ? 'hsl(243, 100%, 62%)' : 'hsl(229, 24%, 87%)'
+                }}>
                     <img src={pro} />
                     <h3>Pro</h3>
                     <p> {billing ? price.proYr : price.proMo} </p>
