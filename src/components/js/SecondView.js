@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import '../css/plan.css'
 import arcade from '../../assets/images/icon-arcade.svg'
 import advanced from '../../assets/images/icon-advanced.svg'
 import pro from '../../assets/images/icon-pro.svg'
 
-function SecondView({view, setView}) {
+function SecondView({view, setView, billing, setBilling}) {
 
-    const[billing, setBilling] = useState(false);
     const[plan, setPlan] = useState({
         arcadePlan: false,
         advancedPlan: false,
@@ -21,6 +20,8 @@ function SecondView({view, setView}) {
         proYr: "$150/yr" 
     });
 
+    console.log(billing)
+
     const handleBack = () => {
         setView({...view, view1 : true, view2 : false});
     }
@@ -32,8 +33,6 @@ function SecondView({view, setView}) {
     const handleToggle = () => {
         setBilling(!billing);
     }
-
-    console.log(plan)
 
     return (
         <div className="main-container">
@@ -81,7 +80,9 @@ function SecondView({view, setView}) {
               <span id="billings">Yearly</span>
             </div>
             <button onClick={handleBack} id='back'>Go back</button>
-            <button onClick={handleNext} id='next'>Next Step</button>
+            <button onClick={handleNext} id='next'>
+                Next Step
+                </button>
             </div>
         </div>
     )

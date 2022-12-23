@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 function FirstView ({view, setView}) {
-
+    const[fields, setFields] = useState ({
+      field: ""
+    })
     const handleClick = () => {
         setView({...view, view1 : false, view2 : true});
       }
@@ -12,7 +14,7 @@ function FirstView ({view, setView}) {
         <p>Please provide your name, email address, and phone nubmer.</p>
          <form>
           <label>Name</label><br></br>
-          <input placeholder='Name'></input>
+          <input type="text" placeholder='Name' required></input>
           <label>Email</label><br></br>
           <input placeholder='Email'></input>
           <label>Phone number</label><br></br>

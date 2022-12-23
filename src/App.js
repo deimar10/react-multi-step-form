@@ -15,6 +15,8 @@ function App() {
     view4: false
   });
 
+  const[billing, setBilling] = useState(false);
+
   return (
     <div className="App">
       <div class="grid-container">
@@ -76,8 +78,8 @@ function App() {
         </div>
         <div class="grid-item" id="main-panel">
           {view.view1 ? <FirstView view={view} setView={setView} /> : null}
-          {view.view2 ? <SecondView view={view} setView={setView} /> : null }
-           {view.view3 ? <ThirdView view={view} setView={setView} /> : null }
+          {view.view2 ? <SecondView view={view} setView={setView} billing={billing} setBilling={setBilling} /> : null }
+           {view.view3 ? <ThirdView view={view} setView={setView} billing={billing} /> : null }
         </div>
       </div>
     </div>
