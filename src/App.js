@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import FirstView from './components/js/FirstView';
 import SecondView from './components/js/SecondView';
 import ThirdView from "./components/js/ThirdView";
+import FourthView from './components/js/FourthView';
 
 function App() {
 
@@ -68,7 +69,13 @@ function App() {
           </div>
           <div id="button-wrapper">
             <div id="steps">
-            <p id='number'>4</p>
+            <p id='number'
+            style={{
+              backgroundColor: view.view4 === true ? 'hsl(206, 94%, 87%)' : 'transparent',
+              color: view.view4 === true ? 'black' : 'white'
+            }}>
+              4
+              </p>
               <h2>step 4</h2>
             </div>
           <div id="text">
@@ -77,9 +84,10 @@ function App() {
           </div>
         </div>
         <div class="grid-item" id="main-panel">
-          {view.view1 ? <FirstView view={view} setView={setView} /> : null}
+          {view.view1 ? <FirstView view={view} setView={setView} /> : null }
           {view.view2 ? <SecondView view={view} setView={setView} billing={billing} setBilling={setBilling} /> : null }
-           {view.view3 ? <ThirdView view={view} setView={setView} billing={billing} /> : null }
+          {view.view3 ? <ThirdView view={view} setView={setView} billing={billing} /> : null }
+          {view.view4 ? <FourthView view={view} setView={setView} /> : null }
         </div>
       </div>
     </div>

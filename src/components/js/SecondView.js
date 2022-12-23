@@ -11,6 +11,7 @@ function SecondView({view, setView, billing, setBilling}) {
         advancedPlan: false,
         proPlan: false,
     });
+
     const[price, setPrice] = useState({
         arcadeMo: "$9/mo",
         advancedMo: "$12/mo",
@@ -19,8 +20,6 @@ function SecondView({view, setView, billing, setBilling}) {
         advancedYr: "$120/yr",
         proYr: "$150/yr" 
     });
-
-    console.log(billing)
 
     const handleBack = () => {
         setView({...view, view1 : true, view2 : false});
@@ -80,9 +79,7 @@ function SecondView({view, setView, billing, setBilling}) {
               <span id="billings">Yearly</span>
             </div>
             <button onClick={handleBack} id='back'>Go back</button>
-            <button onClick={handleNext} id='next'>
-                Next Step
-                </button>
+            <button onClick={handleNext} id='next'>Next Step</button>
             </div>
         </div>
     )

@@ -12,6 +12,13 @@ function ThirdView({ view, setView, billing }) {
     const handleBack = () => {
         setView({ ...view, view2: true, view3: false });
     }    
+
+    const handleNext = () => {
+        setView({...view, view4 : true, view3 : false});
+    }
+
+    console.log(view)
+
     return (
         <div>
             <h2>Pick add-ons</h2>
@@ -103,6 +110,7 @@ function ThirdView({ view, setView, billing }) {
                 </div>
             </div>
             <button onClick={handleBack} id='back'>Go back</button>
+            <button onClick={handleNext} id='next'>Next Step</button>
         </div>
     )
 }
