@@ -6,6 +6,7 @@ import FirstView from './components/js/FirstView';
 import SecondView from './components/js/SecondView';
 import ThirdView from "./components/js/ThirdView";
 import FourthView from './components/js/FourthView';
+import FifthView from './components/js/FifthView';
 
 function App() {
 
@@ -13,7 +14,8 @@ function App() {
     view1: true,
     view2: false,
     view3: false,
-    view4: false
+    view4: false,
+    view5: false
   });
 
   const[billing, setBilling] = useState(false);
@@ -137,6 +139,10 @@ const[addonPrice, setAddonPrice] = useState({
           addonPrice={addonPrice}
           /> 
           : null 
+          }
+          {view.view5 ? 
+          <FifthView/>
+          : null
           }
         </div>
       </div>

@@ -1,3 +1,7 @@
+.fourth-main-section {
+    position: relative;
+}
+
 .fourth-grid-container {
    background-color: hsl(233, 44%, 96%);
    padding: 25px;
@@ -68,6 +72,7 @@
 
 #fourt-view-bottom {
     margin-top: 50px;
+    padding-bottom: 50px;
 }
 
 #fourth-view-total {
@@ -79,7 +84,9 @@
 }
 
 #fourth-button-wrapper {
-    margin-top: 170px;
+    position: absolute;
+    top: 100;
+    width: 29%;
 }
 
 #confirm {

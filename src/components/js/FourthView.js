@@ -11,8 +11,12 @@ function FourthView({view, setView, plan, price, billing, checked, addonPrice}){
         setView({...view, view2 : true, view4 : false})
     }
 
+    const handleConfirm = () => {
+        setView({...view, view5 : true, view4 : false})
+    }
+
  return(
-    <div>
+    <div id="">
         <h2>Select your plan</h2>
         <p>You have the option of monthly or yearly billing.</p>
         <div class="fourth-grid-container">
@@ -110,7 +114,7 @@ function FourthView({view, setView, plan, price, billing, checked, addonPrice}){
         </div>
             <div id="fourth-button-wrapper">
                 <button onClick={handleBack} id='back'>Go back</button>
-                <button id="confirm">Confirm</button>
+                <button onClick={handleConfirm} id="confirm">Confirm</button>
             </div>
     </div>
  )
