@@ -4,23 +4,7 @@ import arcade from '../../assets/images/icon-arcade.svg'
 import advanced from '../../assets/images/icon-advanced.svg'
 import pro from '../../assets/images/icon-pro.svg'
 
-function SecondView({view, setView, billing, setBilling}) {
-
-    const[plan, setPlan] = useState({
-        arcadePlan: false,
-        advancedPlan: false,
-        proPlan: false,
-    });
-
-    const[price, setPrice] = useState({
-        arcadeMo: "$9/mo",
-        advancedMo: "$12/mo",
-        proMo: "$15/mo",
-        arcadeYr: "$90/yr",
-        advancedYr: "$120/yr",
-        proYr: "$150/yr" 
-    });
-
+function SecondView({view, setView, billing, setBilling, plan, setPlan, price, setPrice}) {
     const handleBack = () => {
         setView({...view, view1 : true, view2 : false});
     }
@@ -47,7 +31,7 @@ function SecondView({view, setView, billing, setBilling}) {
                 }}>
                     <img src={arcade} />
                     <h3>Arcade</h3>
-                    <p> {billing ? price.arcadeYr : price.arcadeMo} </p>
+                    <p> ${billing ? price.arcadeYr + '/yr' : price.arcadeMo + '/mo'}</p>
                 </div>
                 <div onClick={() => setPlan({...plan, advancedPlan : !plan.advancedPlan})} 
                 class="second-grid-item" 
@@ -57,7 +41,7 @@ function SecondView({view, setView, billing, setBilling}) {
                 }}>
                     <img src={advanced} />
                     <h3>Advanced</h3>
-                    <p> {billing ? price.advancedYr : price.advancedMo} </p>
+                    <p> ${billing ? price.advancedYr + '/yr' : price.advancedMo + '/mo'}</p>
                 </div>
                 <div onClick={() => setPlan({...plan, proPlan : !plan.proPlan})} 
                 class="second-grid-item"
@@ -67,13 +51,16 @@ function SecondView({view, setView, billing, setBilling}) {
                 }}>
                     <img src={pro} />
                     <h3>Pro</h3>
-                    <p> {billing ? price.proYr : price.proMo} </p>
+                    <p> ${billing ? price.proYr + '/yr' : price.proMo + '/mo'}</p>
                 </div>  
             </div>
             <div className="toggle-container">
               <span id="billings">Monthly</span>
                 <label class="switch">
-                    <input onChange={handleToggle} id="checked" type="checkbox" />
+                    <input onChange={handleToggle} id="checked" 
+                    type="checkbox" 
+                    checked={billing}
+                    />
               <span class="slider round"></span>
                 </label>
               <span id="billings">Yearly</span>

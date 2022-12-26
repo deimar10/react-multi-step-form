@@ -18,6 +18,36 @@ function App() {
 
   const[billing, setBilling] = useState(false);
 
+  const[plan, setPlan] = useState({
+    arcadePlan: false,
+    advancedPlan: false,
+    proPlan: false,
+});
+
+const[price, setPrice] = useState({
+  arcadeMo: 9,
+  advancedMo: 12,
+  proMo: 15,
+  arcadeYr: 90,
+  advancedYr: 120,
+  proYr: 150 
+});
+
+const[checked, setChecked] = useState({
+  ServiceCompleted: false,
+  StorageCompleted: false,
+  ProfileCompleted: false
+});
+
+const[addonPrice, setAddonPrice] = useState({
+  serviceMo: '+$1/mo',
+  storageMo: '+$2/mo',
+  profileMo: '+$2/mo',
+  serviceYr: '+$10/yr',
+  storageYr: '+$20/yr',
+  profileYr: '+$20/yr'
+})
+
   return (
     <div className="App">
       <div class="grid-container">
@@ -84,10 +114,30 @@ function App() {
           </div>
         </div>
         <div class="grid-item" id="main-panel">
-          {view.view1 ? <FirstView view={view} setView={setView} /> : null }
-          {view.view2 ? <SecondView view={view} setView={setView} billing={billing} setBilling={setBilling} /> : null }
-          {view.view3 ? <ThirdView view={view} setView={setView} billing={billing} /> : null }
-          {view.view4 ? <FourthView view={view} setView={setView} /> : null }
+          {view.view1 ? 
+          <FirstView view={view} setView={setView} 
+          /> 
+          : null 
+          }
+          {view.view2 ? 
+          <SecondView view={view} setView={setView} billing={billing} setBilling={setBilling} 
+          plan={plan} setPlan={setPlan} price={price} setPrice={setPrice} 
+          /> 
+          : null 
+          }
+          {view.view3 ? 
+          <ThirdView view={view} setView={setView} billing={billing} 
+          checked={checked} setChecked={setChecked} 
+          /> : 
+          null 
+          }
+          {view.view4 ? 
+          <FourthView view={view} setView={setView} plan={plan} 
+          setPlan={setPlan} billing={billing} price={price} checked={checked}
+          addonPrice={addonPrice}
+          /> 
+          : null 
+          }
         </div>
       </div>
     </div>

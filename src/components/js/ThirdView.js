@@ -1,13 +1,7 @@
 import React, {useState} from 'react';
 import '../css/AddOns.css'
 
-function ThirdView({ view, setView, billing }) {
-
-    const[checked, setChecked] = useState({
-        ServiceCompleted: false,
-        StorageCompleted: false,
-        ProfileCompleted: false
-    });
+function ThirdView({ view, setView, billing, checked, setChecked }) {
 
     const handleBack = () => {
         setView({ ...view, view2: true, view3: false });
@@ -36,7 +30,9 @@ function ThirdView({ view, setView, billing }) {
                             <input
                               onChange={() => setChecked({...checked, ServiceCompleted : !checked.ServiceCompleted})}
                               type="checkbox"
-                              id="service" />
+                              id="service" 
+                              checked={checked.ServiceCompleted}
+                              />
                             <span class="checkmark"></span>
                         </div>
                         <div className='description'>
@@ -64,7 +60,9 @@ function ThirdView({ view, setView, billing }) {
                             <input
                               onChange={() => setChecked({...checked, StorageCompleted : !checked.StorageCompleted})}
                               type="checkbox"
-                              id="service" />
+                              id="service"
+                              checked={checked.StorageCompleted}
+                               />
                             <span class="checkmark"></span>
                         </div>
                         <div className='description'>
@@ -92,7 +90,9 @@ function ThirdView({ view, setView, billing }) {
                             <input
                              onChange={() => setChecked({...checked, ProfileCompleted : !checked.ProfileCompleted})}
                               type="checkbox"
-                              id="service" />
+                              id="service"
+                              checked={checked.ProfileCompleted}
+                               />
                             <span class="checkmark"></span>
                         </div>
                         <div className='description'>
